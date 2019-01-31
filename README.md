@@ -1,6 +1,6 @@
 # hyungjutimer
 
-> A Vue.js project
+> 형주의 첫 **Vue** Toy Project
 
 ## Build Setup
 
