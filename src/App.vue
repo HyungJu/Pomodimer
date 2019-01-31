@@ -3,12 +3,14 @@
     <transition name="slidein">
       <notification v-if='notiExists()'/>
     </transition>
+
     <div id="flex">
 
-      <button v-on:click="show()">보기</button>
       <timer/>
-    </div>
 
+      <button v-on:click="show()">토글</button>
+
+    </div>
 
   </div>
 
@@ -28,7 +30,12 @@ export default {
   },
   methods: {
     show: function () {
-      this.notification = 'gg'
+      if(!this.notification){
+
+        this.notification = 'gg'
+      } else {
+        this.notification = ''
+      }
     },
     notiExists: function () {
       return this.notification
@@ -55,15 +62,7 @@ export default {
      display: flex;
      justify-content: center;
    }
-  .slidein-enter-active {
-    transition: all .3s ease;
-  }
-  .slidein-enter
-    /* .slide-fade-leave-active below version 2.1.8 */ {
-    transform: translatey(-10px);
-    opacity: 0;
-  }.sidein-enter-active{
-    transition: 1s;
-    left: 0;
-  }
+
+
+
 </style>
