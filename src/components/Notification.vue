@@ -1,12 +1,13 @@
 <template>
     <div id="noti">
-      <p>태거니 바보</p>
+      <p>{{message}}</p>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Notification'
+  name: 'Notification',
+  props: ['message']
 }
 </script>
 

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-  var numeral = require('numeral')
-  export default {
+const numeral = require('numeral')
+export default {
   name: 'timer',
   data: function () {
     return {
@@ -18,9 +18,6 @@
   },
   computed: {
     displayTimer: function () {
-      var min = parseInt(this.timerDuration / 60)
-      var sec = this.timerDuration - min * 60 ? this.timerDuration - min * 60 : '00'
-
       return numeral(this.timerDuration).format('00:00')
     }
   },

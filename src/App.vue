@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition name="slidein">
-      <notification v-if='notiExists()'/>
+      <notification v-bind:message='notification' v-if='notiExists()'/>
     </transition>
 
     <div id="flex">
@@ -9,6 +9,7 @@
       <timer/>
 
       <button v-on:click="show()">토글</button>
+      <button v-on:click="change()">내용 변경</button>
 
     </div>
 
@@ -30,12 +31,14 @@ export default {
   },
   methods: {
     show: function () {
-      if(!this.notification){
-
+      if (!this.notification) {
         this.notification = 'gg'
       } else {
         this.notification = ''
       }
+    },
+    change: function () {
+      this.notification = 'gg1'
     },
     notiExists: function () {
       return this.notification
@@ -62,7 +65,5 @@ export default {
      display: flex;
      justify-content: center;
    }
-
-
 
 </style>
