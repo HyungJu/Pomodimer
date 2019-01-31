@@ -1,8 +1,9 @@
 
 <template>
     <div id="timer">
-      <span id="title">형주단어장 만들기</span>
-      <span id="displayTimer">{{ displayTimer }}</span>
+      <span  id="title" v-on:click="setTitleInputSelected()" v-show="!showInput()">{{ title }}</span>
+      <input v-model="title" id="titleInput" ref="titleInput" v-on:keypress.enter="titleInputMode=false" v-show="showInput()">
+      <span id="displayTimer" >{{ displayTimer }}</span>
     </div>
 </template>
 
@@ -13,12 +14,23 @@ export default {
   data: function () {
     return {
       time: '',
-      timerDuration: 1500
+      title: '클릭해 제목 수정',
+      timerDuration: 1500,
+      titleInputMode: 'false'
     }
   },
   computed: {
     displayTimer: function () {
       return numeral(this.timerDuration).format('00:00')
+    }
+  },
+  methods: {
+    showInput: function () {
+      return this.titleInputMode
+    },
+    setTitleInputSelected: function () {
+      this.titleInputMode = true
+      this.$refs.titleInput.focus()
     }
   },
   mounted () {
@@ -50,5 +62,16 @@ export default {
     font-family: NanumBarunGothic;
     font-size: 55px;
     font-weight: bold;
+  }
+  #titleInput {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    font-family: NanumBarunGothic;
+    font-size: 55px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    text-align: center;
   }
 </style>
