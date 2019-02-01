@@ -2,13 +2,12 @@
 <template>
     <div id="timer">
       <span  id="title" v-on:click="setTitleInputSelected()" v-show="!showInput()">{{ title }}</span>
-      <input v-model="title" id="titleInput" ref="titleInput" v-on:keypress.enter="titleInputMode=false" v-show="showInput()">
+      <input v-model="title"  v-on:click="this.focus()" id="titleInput" ref="titleInput" v-on:keypress.enter="titleInputMode=false" v-show="showInput()">
       <span id="displayTimer" >{{ displayTimer }}</span>
     </div>
 </template>
 
 <script>
-const numeral = require('numeral')
 export default {
   name: 'timer',
   data: function () {
@@ -21,18 +20,29 @@ export default {
   },
   computed: {
     displayTimer: function () {
-      return numeral(this.timerDuration).format('00:00')
+      let minute = parseInt(this.timerDuration / 60)
+      let second = parseInt(this.timerDuration - minute * 60)
+
+      if (minute < 10) {
+        minute = '0' + minute
+      } else if (second < 10) {
+        second = '0' + second
+      } else if (second === 0) {
+        second = '00'
+      }
+
+      return minute + ':' + second
     }
   },
   methods: {
     showInput: function () {
-      return this.titleInputMode
+      return this.titleInputMode || this.titleInputModeProps
     },
     setTitleInputSelected: function () {
-      this.titleInputMode = true
       this.$refs.titleInput.focus()
     }
   },
+  props: ['titleInputModeProps'],
   mounted () {
     setInterval(() => {
       this.timerDuration--
