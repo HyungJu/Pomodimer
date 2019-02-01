@@ -2,6 +2,15 @@
 
 > 형주의 첫 **Vue** Toy Project
 
+
+## TODOS
+
+ - [ ] Title 클릭시 input / p 간 즉시 전환, 누르면 자동 focus()
+ - [ ] 1회 완료시 Lemon 1 증가
+ - [ ] Notification 애니메이션 구현
+ - [ ] Stop 버튼 구현 
+ 
+ .. 
 ## Build Setup
 
 ``` bash
@@ -28,3 +37,4 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+d
