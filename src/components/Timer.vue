@@ -25,9 +25,9 @@ export default {
 
       if (minute < 10) {
         minute = '0' + minute
-      } else if (second < 10) {
+      } if (second < 10) {
         second = '0' + second
-      } else if (second === 0) {
+      } if (second === 0) {
         second = '00'
       }
       return minute + ':' + second
