@@ -30,7 +30,6 @@ export default {
       } else if (second === 0) {
         second = '00'
       }
-
       return minute + ':' + second
     }
   },
@@ -44,6 +43,10 @@ export default {
   },
   props: ['titleInputModeProps'],
   mounted () {
+    const audio = new Audio('/static/clock.mp3')
+
+    audio.loop = true
+    audio.play()
     setInterval(() => {
       this.timerDuration--
     }, 1000)

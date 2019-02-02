@@ -2,6 +2,12 @@
 
 > 형주의 첫 **Vue** Toy Project
 
+## Opensource License
+
+ * [Ticking Clock Sound](http://www.orangefreesounds.com/ticking-clock-sound/) **by Alexander** 
+ 
+ The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)”
+
 
 ## TODOS
 
