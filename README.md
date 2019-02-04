@@ -14,7 +14,7 @@
  - [ ] Title 클릭시 input / p 간 즉시 전환, 누르면 자동 focus()
  - [ ] 1회 완료시 Lemon 1 증가
  - [ ] Notification 애니메이션 구현
- - [ ] Stop 버튼 구현 
+ - [X] Stop 버튼 구현 
  
  .. 
 ## Build Setup
