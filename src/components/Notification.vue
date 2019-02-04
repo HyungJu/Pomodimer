@@ -31,4 +31,5 @@ export default {
   }p{
     font-size: 30px;
      }
+
 </style>

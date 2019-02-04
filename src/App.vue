@@ -12,7 +12,7 @@
       <button v-on:click="change()">내용 변경</button>
       -->
       <div id="stopBox">
-        <i id="stop" v-on:click="stop()" class="fas fa-stop"></i>
+        <i id="stop" v-on:click="show()" class="fas fa-stop"></i>
       </div>
 
       <ul>
@@ -44,7 +44,7 @@ export default {
   methods: {
     show: function () {
       if (!this.notification) {
-        this.notification = 'gg'
+        this.notification = '반갑읍니다. F11을 눌러서 전체화면으로 전환이 가능합네다 '
       } else {
         this.notification = ''
       }
@@ -112,4 +112,19 @@ ul{
    color: white;
    text-align: center;
  }
+
+  .slidein-enter{
+
+    transform: translateY(-110%);
+  }
+  .slidein-enter-active{
+    transition: 1s;
+  }
+  .slidein-leave-active{
+    transition: 2s;
+  }
+  .slidein-leave-to{
+
+    transform: translateY(-300%);
+  }
 </style>
