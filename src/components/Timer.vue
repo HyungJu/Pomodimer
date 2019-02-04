@@ -10,6 +10,7 @@
 <script>
 const audio = new Audio('/static/clock.mp3')
 audio.load()
+var timerInterval
 export default {
   name: 'timer',
   data: function () {
@@ -33,9 +34,8 @@ export default {
         second = '00'
       }
 
-      if (this.timerDuration <= 0) {
+      if (!this.timerDuration) {
         this.stopTimer()
-        return false
       }
       return minute + ':' + second
     }
@@ -48,7 +48,8 @@ export default {
       this.$refs.titleInput.focus()
     },
     stopTimer: function () {
-      // audio.pause()
+      audio.pause()
+      clearInterval(timerInterval)
       this.timerDuration = 0
     }
   },
@@ -57,7 +58,7 @@ export default {
     audio.loop = true
     audio.play().catch(() => {
     }).then(() => {
-      setInterval(() => {
+      timerInterval = setInterval(() => {
         this.timerDuration--
       }, 1000)
     })
