@@ -16,8 +16,8 @@
       </div>
 
       <ul>
-        <li v-for="lemon in lemons">
-          <i class="fas fa-lemon"></i>
+        <li v-for="lemon of lemons" :key="lemon">
+          <i class="fas fa-lemon"></i> {{lemon}}
         </li>
       </ul>
     </div>
@@ -36,7 +36,7 @@ export default {
     return {
       msg: '안농',
       notification: '',
-      lemons: [0,1,2,3,4,5],
+      lemons: [0, 1, 2, 3, 4, 5],
       titleInputMode: false
     }
   },
@@ -55,7 +55,7 @@ export default {
       return this.notification
     },
     stop: function () {
-      return true
+      Timer.methods.stopTimer()
     }
 
   }
@@ -66,7 +66,7 @@ export default {
   body{
     margin: 0;
     padding: 0;
-    background-color: #E8554D;
+    background-color: #212121;
   }
   #flex{
     display: flex;
@@ -100,7 +100,6 @@ ul{
   color:white;
   margin: 0;
   padding: 0;
-
 
 }li{
     padding: 5px;

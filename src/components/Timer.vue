@@ -8,6 +8,8 @@
 </template>
 
 <script>
+const audio = new Audio('/static/clock.mp3')
+audio.load()
 export default {
   name: 'timer',
   data: function () {
@@ -30,6 +32,11 @@ export default {
       } if (second === 0) {
         second = '00'
       }
+
+      if (this.timerDuration <= 0) {
+        this.stopTimer()
+        return false
+      }
       return minute + ':' + second
     }
   },
@@ -39,17 +46,21 @@ export default {
     },
     setTitleInputSelected: function () {
       this.$refs.titleInput.focus()
+    },
+    stopTimer: function () {
+      // audio.pause()
+      this.timerDuration = 0
     }
   },
   props: ['titleInputModeProps'],
   mounted () {
-    const audio = new Audio('/static/clock.mp3')
-
     audio.loop = true
-    audio.play()
-    setInterval(() => {
-      this.timerDuration--
-    }, 1000)
+    audio.play().catch(() => {
+    }).then(() => {
+      setInterval(() => {
+        this.timerDuration--
+      }, 1000)
+    })
   }
 }
 </script>
