@@ -6,7 +6,7 @@
 
     <div id="flex">
 
-      <timer titleInputModeProps="titleInputMode"/>
+      <timer :timerStop="timerStop" :titleInputModeProps="titleInputMode"/>
       <!--
       <button v-on:click="show()">토글</button>
       <button v-on:click="change()">내용 변경</button>
@@ -37,7 +37,8 @@ export default {
       msg: '안농',
       notification: '',
       lemons: [0, 1, 2, 3, 4, 5],
-      titleInputMode: false
+      titleInputMode: false,
+      timerStop: false
     }
   },
   methods: {
@@ -55,7 +56,7 @@ export default {
       return this.notification
     },
     stop: function () {
-      Timer.methods.stopTimer()
+      this.timerStop = true
     }
 
   }

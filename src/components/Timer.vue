@@ -53,7 +53,7 @@ export default {
       this.timerDuration = 0
     }
   },
-  props: ['titleInputModeProps'],
+  props: ['titleInputModeProps', 'timerStop'],
   mounted () {
     audio.loop = true
     audio.play().catch(() => {
@@ -62,6 +62,13 @@ export default {
         this.timerDuration--
       }, 1000)
     })
+  },
+  watch: {
+    timerStop: function () {
+      if(this.timerStop){
+        this.stopTimer()
+      }
+    }
   }
 }
 </script>
