@@ -13,6 +13,8 @@ export default {
 
 <style scoped>
   #noti{
+
+    margin: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,12 +26,13 @@ export default {
     right: 0;
     margin-top: 3vh;
     border-radius: 5px;
-    height: 10vh;
-    width: 90vw;
+
+    width: 80vw;
     background-color: #FFFFFF;
     box-shadow: 0 23px 87px 0px rgba(255,255,255,0.24);
   }p{
-    font-size: 30px;
+    padding: .2rem;
+    font-size: 1.3rem;
      }
 
 </style>

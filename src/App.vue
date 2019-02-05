@@ -43,7 +43,7 @@ export default {
   methods: {
     show: function () {
       if (!this.notification) {
-        this.notification = '반갑읍니다. F11을 눌러서 전체화면으로 전환이 가능합네다 '
+        this.notification = '형주타이머입니당. 꺄르르'
       } else {
         this.notification = ''
       }
