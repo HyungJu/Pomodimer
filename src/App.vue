@@ -12,7 +12,7 @@
       <button v-on:click="change()">내용 변경</button>
       -->
       <div id="stopBox">
-        <i id="stop" v-on:click="show()" class="fas fa-stop"></i>
+        <i id="stop" v-on:click="stop()" class="fas fa-stop"></i>
       </div>
 
     </div>

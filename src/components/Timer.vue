@@ -50,7 +50,7 @@ export default {
     stopTimer: function () {
       audio.pause()
       clearInterval(timerInterval)
-      this.timerDuration = 0
+      //this.timerDuration = 0
     }
   },
   props: ['titleInputModeProps', 'timerStop'],
