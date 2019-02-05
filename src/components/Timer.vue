@@ -81,7 +81,7 @@ export default {
   }#displayTimer{
 
        font-family: Montserrat;
-       font-size: 135px;
+       font-size: 5rem;
        font-weight: bold;
        margin-top: 0px;
        margin-bottom: 0px;
@@ -92,7 +92,7 @@ export default {
     width: 100%;
     color: #FFFFFF;
     font-family: NanumBarunGothic;
-    font-size: 55px;
+    font-size: 2rem;
     font-weight: bold;
   }
   #titleInput {
@@ -100,7 +100,7 @@ export default {
     width: 100%;
     color: #FFFFFF;
     font-family: NanumBarunGothic;
-    font-size: 55px;
+    font-size: 2rem;
     font-weight: bold;
     background: transparent;
     border: none;

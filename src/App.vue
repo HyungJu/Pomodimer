@@ -15,13 +15,12 @@
         <i id="stop" v-on:click="show()" class="fas fa-stop"></i>
       </div>
 
-      <ul>
-        <li v-for="lemon of lemons" :key="lemon">
-          <i class="fas fa-lemon"></i> {{lemon}}
-        </li>
-      </ul>
     </div>
-
+    <ul>
+      <li v-for="lemon of lemons" :key="lemon">
+        <i class="fas fa-lemon"></i>
+      </li>
+    </ul>
   </div>
 
 </template>
@@ -36,7 +35,7 @@ export default {
     return {
       msg: '안농',
       notification: '',
-      lemons: [0, 1, 2, 3, 4, 5],
+      lemons: [0, 1],
       titleInputMode: false,
       timerStop: false
     }
@@ -64,6 +63,7 @@ export default {
 </script>
 
 <style>
+
   body{
     margin: 0;
     padding: 0;
@@ -82,35 +82,34 @@ export default {
      justify-content: center;
    }
   #stopBox {
-    height: 30px;
-    width: 30px;
-    padding:20px;
+    height: 1.3rem;
+    width: 1.3rem;
+    padding:1rem;
     border: 1px solid white;
     border-radius: 50px;
     margin-top:40px;
   }
   #stop{
 
-    font-size: 30px;
+    font-size: 1.3rem;
 
     color: white;
          }
 ul{
-  display: flex;
+  position: absolute;
   list-style-type: none;
   color:white;
-  margin: 0;
-  padding: 0;
-
+  padding-left: 0;
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  bottom: 1rem;
+  transform: translateX(-50%);
+  padding-right: 0.5rem;
 }li{
-    padding: 5px;
-    font-size: 30px;
+    padding-left: 0.5rem;
+    font-size: 1.5rem;
 
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   color: white;
-   text-align: center;
+   float: left;
+
  }
 
   .slidein-enter{
