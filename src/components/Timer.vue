@@ -8,6 +8,9 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
+import Vue from 'vue'
+Vue.use(Vuex)
 const audio = new Audio('/static/clock.mp3')
 audio.load()
 var timerInterval
@@ -35,6 +38,7 @@ export default {
       }
 
       if (!this.timerDuration) {
+        this.$store.commit('endTimer')
         this.stopTimer()
       }
       return minute + ':' + second
@@ -50,7 +54,7 @@ export default {
     stopTimer: function () {
       audio.pause()
       clearInterval(timerInterval)
-      //this.timerDuration = 0
+      //  this.timerDuration = 0
     }
   },
   props: ['titleInputModeProps', 'timerStop'],
@@ -65,7 +69,7 @@ export default {
   },
   watch: {
     timerStop: function () {
-      if(this.timerStop){
+      if (this.timerStop) {
         this.stopTimer()
       }
     }

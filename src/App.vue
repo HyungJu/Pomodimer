@@ -29,15 +29,43 @@
 
 import Timer from './components/Timer'
 import Notification from './components/Notification'
+import Vuex from 'vuex'
+import Vue from 'vue'
+Vue.use(Vuex)
+export const store = new Vuex.Store({
+  state: {
+    timerEnded: false
+  },
+  mutations: {
+    endTimer (state) {
+      state.timerEnded = true
+    },
+    startTimer (state) {
+      state.timerEnded = false
+    }
+  }
+})
 export default {
   components: {Notification, Timer},
+  store,
   data: function () {
     return {
       msg: '안농',
       notification: '',
-      lemons: [0, 1],
+      lemons: [],
       titleInputMode: false,
-      timerStop: false
+      timerStop: false,
+      vuexStore: store
+    }
+  },
+  computed: {
+    timerEnded: function () {
+      return store.state.timerEnded
+    }
+  },
+  watch: {
+    timerEnded: function () {
+      this.lemons.push('gg')
     }
   },
   methods: {
@@ -58,6 +86,12 @@ export default {
       this.timerStop = true
     }
 
+  },
+  mounted: function () {
+    this.$on('timerEnd', (title) => {
+      console.log(title)
+      this.lemons.push(title)
+    })
   }
 }
 </script>
