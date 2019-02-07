@@ -65,6 +65,10 @@ export default {
   },
   watch: {
     timerEnded: function () {
+      this.notification = 'Timer has been ended'
+      setTimeout(() => {
+        this.notification = ''
+      }, 3000)
       this.lemons.push('gg')
     }
   },
