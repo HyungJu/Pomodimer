@@ -17,7 +17,13 @@
  - [ ] Request Animation Frame
  - [X] Notification 애니메이션 구현
  - [X] Stop 버튼 구현 
- 
+ - [ ] 타이머중 Distraction 적기 
+ - [ ] 타이머 종료 후 5분 휴식 시작 
+ - [ ] Lemon의 상태를 계속 저장해두기 
+ - [ ] Stop버튼 한 다음 다시 처읍부터 시작 가능하게 만들기
+ - [ ] 4개 Lemon 후 긴 휴식
+ - [ ] User Customization
+ - [ ] Electron 앱 제작 
  .. 
 ## Build Setup
 

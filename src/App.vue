@@ -87,6 +87,10 @@ export default {
       return this.notification
     },
     stop: function () {
+      this.notification = 'Timer has been ended'
+      setTimeout(() => {
+        this.notification = ''
+      }, 3000)
       this.timerStop = true
     }
 
