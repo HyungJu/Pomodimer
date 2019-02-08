@@ -1,6 +1,9 @@
 # hyungjutimer
 
-> 형주의 첫 **Vue** Toy Project
+![](https://img.shields.io/david/hyungju/pomodimer.svg?style=flat)
+![](https://img.shields.io/github/repo-size/hyungju/pomodimer.svg?style=flat)
+![](https://img.shields.io/github/stars/hyungju/pomodimer.svg?style=social)
+
 
 ## Opensource License
 
@@ -24,7 +27,7 @@
  - [ ] 4개 Lemon 후 긴 휴식
  - [ ] User Customization
  - [ ] Electron 앱 제작 
- .. 
+ 
 ## Build Setup
 
 ``` bash
