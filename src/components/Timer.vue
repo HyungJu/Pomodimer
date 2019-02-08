@@ -20,14 +20,13 @@ export default {
     return {
       time: '',
       title: '클릭해 제목 수정',
-      timerDuration: 1500,
       titleInputMode: 'false'
     }
   },
   computed: {
     displayTimer: function () {
-      let minute = parseInt(this.timerDuration / 60)
-      let second = parseInt(this.timerDuration - minute * 60)
+      let minute = parseInt(this.$store.state.timerDuration / 60)
+      let second = parseInt(this.$store.state.timerDuration - minute * 60)
 
       if (minute < 10) {
         minute = '0' + minute
@@ -37,7 +36,7 @@ export default {
         second = '00'
       }
 
-      if (!this.timerDuration) {
+      if (!this.$store.state.timerDuration) {
         this.$store.commit('endTimer')
         this.stopTimer()
       }
@@ -63,7 +62,7 @@ export default {
     audio.play().catch(() => {
     }).then(() => {
       timerInterval = setInterval(() => {
-        this.timerDuration--
+        this.$store.state.timerDuration--
       }, 1000)
     })
   },
@@ -71,6 +70,10 @@ export default {
     timerStop: function () {
       if (this.timerStop) {
         this.stopTimer()
+      } else {
+        timerInterval = setInterval(() => {
+          this.$store.state.timerDuration--
+        }, 1000)
       }
     }
   }

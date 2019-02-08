@@ -12,7 +12,8 @@
       <button v-on:click="change()">내용 변경</button>
       -->
       <div id="stopBox">
-        <i id="stop" v-on:click="stop()" class="fas fa-stop"></i>
+        <i id="stop" v-on:click="stop()" v-show="!timerStop" class="fas fa-stop"></i>
+        <i id="start" v-on:click="start()"  v-show="timerStop" class="fas fa-play"></i>
       </div>
 
     </div>
@@ -34,7 +35,9 @@ import Vue from 'vue'
 Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
-    timerEnded: false
+    timerEnded: false,
+    timerDuration: 1,
+    notFullTimer: false
   },
   mutations: {
     endTimer (state) {
@@ -42,6 +45,9 @@ export const store = new Vuex.Store({
     },
     startTimer (state) {
       state.timerEnded = false
+    },
+    setTimerDuration (time, state) {
+      state.timerDuration = time
     }
   }
 })
@@ -52,7 +58,7 @@ export default {
     return {
       msg: '안농',
       notification: '',
-      lemons: [],
+      lemons: localStorage.lemon,
       titleInputMode: false,
       timerStop: false,
       vuexStore: store
@@ -69,7 +75,10 @@ export default {
       setTimeout(() => {
         this.notification = ''
       }, 3000)
-      this.lemons.push('gg')
+      if (!this.$store.state.notFullTimer) {
+        this.lemons.push('gg')
+        this.$store.state.notFullTimer = false
+      }
     }
   },
   methods: {
@@ -92,10 +101,21 @@ export default {
         this.notification = ''
       }, 3000)
       this.timerStop = true
+      this.$store.state.timerDuration = 0
+      this.$store.state.notFullTimer = true
+    },
+    start: function () {
+      this.notification = 'Timer has been started'
+      setTimeout(() => {
+        this.notification = ''
+      }, 3000)
+      this.timerStop = false
+      this.$store.state.timerDuration = 25 * 60
     }
 
   },
   mounted: function () {
+    this.lemons = []
     this.$on('timerEnd', (title) => {
       console.log(title)
       this.lemons.push(title)
@@ -137,6 +157,13 @@ export default {
 
     color: white;
          }
+  #start{
+
+    font-size: 1.3rem;
+
+    color: white;
+    padding-left:0.2rem;
+  }
 ul{
   position: absolute;
   list-style-type: none;
